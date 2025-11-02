@@ -8,5 +8,6 @@ This is my first project, mainly for the purpose of a starter portfolio project,
 ## Exploring the data
 
 ````sql
-SELECT * FROM imdb_top_250_movies ORDER BY year DESC
+SELECT * FROM imdb_top_250_movies
+ORDER BY year DESC
 ````
