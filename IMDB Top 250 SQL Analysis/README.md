@@ -76,9 +76,9 @@ SELECT ROUND(AVG(rating)::numeric, 2) as average_rating,
 	   		WHEN year >= 2020 AND year < 2030 THEN '2020s'
 	   		ELSE NULL END AS decade,
 	   COUNT(*) AS count
-	FROM imdb_top_250_movies
-	GROUP BY decade
-	ORDER BY decade DESC
+FROM imdb_top_250_movies
+GROUP BY decade
+ORDER BY decade DESC
 ````
 
 To divide the data into decades, I chose to use the CASE clause, acting on the year column, then grouped by decade.
@@ -106,8 +106,8 @@ WITH imdb_max AS (
 SELECT imdb.title,
 	   max_rating,
 	   decade
-	FROM imdb_max
-	INNER JOIN imdb_top_250_movies imdb
+FROM imdb_max
+INNER JOIN imdb_top_250_movies imdb
 	ON imdb.rating = imdb_max.max_rating
 	AND CASE WHEN year >= 1920 AND year < 1930 THEN '1920s'
 			 WHEN year >= 1930 AND year < 1940 THEN '1930s'
@@ -121,7 +121,7 @@ SELECT imdb.title,
 			 WHEN year >= 2010 AND year < 2020 THEN '2010s'
 			 WHEN year >= 2020 AND year < 2030 THEN '2020s'
 			 ELSE NULL END = imdb_max.decade
-	ORDER BY decade DESC
+ORDER BY decade DESC
 ````
 
 For this query, I thought I would use some sort of self join. My thought was to first find the highest ratings for each decade, then perform a JOIN on the original table to then match both the ratings and decades to select the corresponding titles.
