@@ -81,7 +81,7 @@ SELECT ROUND(AVG(rating)::numeric, 2) as average_rating,
 	ORDER BY decade DESC
 ````
 
-To divide the data into decades, I chose to use the CASE clause, acting on the year column, then grouped by decaded.
+To divide the data into decades, I chose to use the CASE clause, acting on the year column, then grouped by decade.
 
 ### 3.2) Find the highest rated movie(s) of each decade and their rating.
 
@@ -126,4 +126,4 @@ SELECT imdb.title,
 
 For this query, I thought I would use some sort of self join. My thought was to first find the highest ratings for each decade, then perform a JOIN on the original table to then match both the ratings and decades to select the corresponding titles.
 
-I first altered the query for 3.1, changing the AVG function to a MAX, to find the maxium rating for each decade. I then used it as a CTE to perform a join on the original table, and it seemed to do the trick!
+I first altered the query for 3.1, changing the AVG function to a MAX, to find the maximum rating for each decade. I then used it as a CTE to perform a join on the original table, and it seemed to do the trick!
