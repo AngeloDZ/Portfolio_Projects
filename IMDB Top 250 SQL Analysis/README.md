@@ -14,7 +14,7 @@ SELECT * FROM imdb_top_250_movies
 ORDER BY year DESC
 ````
 
-Very simple. Added ORDER BY clause for convenience.
+Very simple. Added `ORDER BY` clause for convenience.
 
 ### 2.2) Order all films by rating descending.
 
@@ -22,7 +22,7 @@ Very simple. Added ORDER BY clause for convenience.
 SELECT title, rank, rating FROM imdb_top_250_movies
 ORDER BY rating DESC
 ````
-Again, very simple use of the ORDER BY clause.
+Again, very simple use of the `ORDER BY` clause.
 
 ### 2.3) Find movie(s) with the maximum rating.
 
@@ -30,7 +30,7 @@ Again, very simple use of the ORDER BY clause.
 SELECT title, rank, rating FROM imdb_top_250_movies
 WHERE rating = (SELECT MAX(rating) FROM imdb_top_250_movies)
 ````
-I could have just used a WHERE clause to select the row with the number 1 rank, however I wished to use a basic subquery for the purposes of practice. Additionally, if the data contained more than one movie with the highest rating, those additional movies would be displayed too.
+I could have just used a `WHERE` clause to select the row with the number 1 rank, however I wished to use a basic subquery for the purposes of practice. Additionally, if the data contained more than one movie with the highest rating, those additional movies would be displayed too.
 
 ### 2.4) Find the top 10 movies of all time.
 
@@ -39,14 +39,14 @@ SELECT title, rank FROM imdb_top_250_movies
 WHERE rank <= 10
 ORDER BY rank
 ````
-Two ways of doing this. First is the WHERE clause with regards to the rank.
+Two ways of doing this. First is the `WHERE` clause with regards to the rank.
 
 ````sql
 SELECT title, rating FROM imdb_top_250_movies
 ORDER BY rating DESC
 LIMIT 10;
 ````
-Second is by ordering by rating, then using LIMIT.
+Second is by ordering by rating, then using `LIMIT`.
 
 ### 2.5) Find all the movies with a rating of 9 or higher.
 
@@ -55,7 +55,7 @@ SELECT title, year, rating FROM imdb_top_250_movies
 WHERE rating >= 9
 ORDER BY rating DESC
 ````
-Again, simple use of the WHERE clause.
+Again, simple use of the `WHERE` clause.
 
 ## 3 Aggregating and Analyzing Data (Intermediate Queries)
 
@@ -81,7 +81,7 @@ GROUP BY decade
 ORDER BY decade DESC
 ````
 
-To divide the data into decades, I chose to use the CASE clause, acting on the year column, then grouped by decade.
+To divide the data into decades, I chose to use the `CASE` clause, acting on the year column, then grouped by decade.
 
 ### 3.2) Find the highest rated movie(s) of each decade and their rating.
 
@@ -126,12 +126,10 @@ ORDER BY decade DESC
 
 For this query, I thought I would use some sort of self join. My thought was to first find the highest ratings for each decade, then perform a JOIN on the original table to then match both the ratings and decades to select the corresponding titles.
 
-I first altered the query for 3.1, changing the AVG function to a MAX, to find the maximum rating for each decade. I then used it as a CTE to perform a join on the original table, and it seemed to do the trick!
+I first altered the query for 3.1, changing the `AVG` function to a `MAX`, to find the maximum rating for each decade. I then used it as a CTE to perform a join on the original table, and it seemed to do the trick!
 
 ## 4 What I learned
 
-As this was my first mini-project, this was more so for the purposes of learning how to use PostgreSQL and how to use Github as a platform for my portfolio.
+This first mini-project helped me learn how to use PostgreSQL and how to present SQL projects on GitHub.  
 
-As seen, I have made queries using some of the basic clauses, using WHERE to filter data, the AVG and MAX functions for aggregation, ORDER BY to order the data, etc.
-
-However, I did learn a few more techniques, such as making use of CTEs and simple subqueries to substitute in data and combining them to perform joins to the original data. I have also learned that certain functions, in this case ROUND, can only take a certain numerical data type as an input, as well as how to convert numerical types into the required type.
+I practiced basic SQL clauses such as `SELECT`, `WHERE`, and `ORDER BY`, as well as aggregation functions like `AVG` and `MAX`. I also learned to use subqueries and CTEs to perform more advanced queries, including combining aggregated results with the original table using joins. I have also learned that certain functions, in this case `ROUND`, can only take a certain numerical data type as an input, as well as how to convert numerical types into the required type.
