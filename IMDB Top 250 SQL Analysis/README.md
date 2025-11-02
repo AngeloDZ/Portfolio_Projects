@@ -5,7 +5,7 @@ This project explores the 250 top rated IMDB movies of all time using some basic
 
 This is my first project, mainly for the purpose of a starter portfolio project and practicing some basic SQL queries on PostgreSQL, as well as learning how to use Github to display future projects.
 
-## 2 Exploring and filtering data (Basic queries)
+## 2 Exploring and Filtering Data (Basic queries)
 
 ### 2.1) Viewing all the data.
 
@@ -127,3 +127,11 @@ ORDER BY decade DESC
 For this query, I thought I would use some sort of self join. My thought was to first find the highest ratings for each decade, then perform a JOIN on the original table to then match both the ratings and decades to select the corresponding titles.
 
 I first altered the query for 3.1, changing the AVG function to a MAX, to find the maximum rating for each decade. I then used it as a CTE to perform a join on the original table, and it seemed to do the trick!
+
+## 4 What I learned
+
+As this was my first mini-project, this was more so for the purposes of learning how to use PostgreSQL and how to use Github as a platform for my portfolio.
+
+As seen, I have made queries using some of the basic clauses, using WHERE to filter data, the AVG and MAX functions for aggregation, ORDER BY to order the data, etc.
+
+However, I did learn a few more techniques, such as making using of CTEs and simple subqueries to substitute in data and combining them to perform joins to the original data. Another thing I had learned was understanding that certain functions, in this case ROUND, can only take a certain numerical data type as an input.
