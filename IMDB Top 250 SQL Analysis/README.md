@@ -7,4 +7,4 @@ This is my first project, mainly for the purpose of a starter portfolio project,
 
 ## Exploring the data
 
-````SELECT * FROM imdb_top_250_movies ORDER BY year DESC````
+````sql SELECT * FROM imdb_top_250_movies ORDER BY year DESC````
