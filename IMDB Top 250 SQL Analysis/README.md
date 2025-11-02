@@ -30,4 +30,29 @@ Again, very simple use of the ORDER BY clause.
 SELECT title, rank, rating FROM imdb_top_250_movies
 WHERE rating = (SELECT MAX(rating) FROM imdb_top_250_movies)
 ````
-I could have just used 
+I could have just used a WHERE clause to select the row with the number 1 rank, however I wished to use a basic subquery for the purposes of practice. Additionally, if the data contained more than one movie with the highest rating, those additional movies would be displayed too.
+
+### 4) Find the top 10 movies of all time.
+
+````sql
+SELECT title, rank FROM imdb_top_250_movies
+WHERE rank <= 10
+ORDER BY rank;
+````
+Two ways of doing this. First is the WHERE clause with regards to the rank.
+
+````sql
+SELECT title, rating FROM imdb_top_250_movies
+ORDER BY rating DESC
+LIMIT 10;
+````
+Second is by using LIMIT.
+
+### 5) Find all the movies with a rating of 9 or higher.
+
+````sql
+SELECT title, year, rating FROM imdb_top_250_movies
+WHERE rating >= 9
+ORDER BY rating DESC
+````
+Again, simple use of the WHERE clause.
